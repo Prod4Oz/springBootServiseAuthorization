@@ -1,5 +1,6 @@
 package ru.netology.springbootserviseauthorization.controller;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.netology.springbootserviseauthorization.domain.Person;
@@ -17,7 +18,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(Person person) {
+    public List<Authorities> getAuthorities(@Validated Person person) {
         return service.getAuthorities(person.getUserName(), person.getUserPassword());
     }
 }
