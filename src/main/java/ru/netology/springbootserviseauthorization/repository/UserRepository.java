@@ -1,6 +1,7 @@
 package ru.netology.springbootserviseauthorization.repository;
 
 import org.springframework.stereotype.Repository;
+import ru.netology.springbootserviseauthorization.domain.Person;
 import ru.netology.springbootserviseauthorization.model.Authorities;
 
 import java.util.Collections;
@@ -19,11 +20,12 @@ public class UserRepository {
         this.authorities.put("User", List.of(Authorities.READ));
 
     }
-
-    public List<Authorities> getUserAuthorities(String user, String password) {
-        if (!user.isEmpty() && !password.isEmpty()) return authorities.getOrDefault(user, Collections.emptyList());
+    public List<Authorities> getUserAuthorities(String userName, String userPassword) {
+        if (!userName.isEmpty() && !userPassword.isEmpty()) return authorities.getOrDefault(userName, Collections.emptyList());
 
         return Collections.emptyList();
     }
-}
+
+    }
+
 
